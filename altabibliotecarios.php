@@ -11,6 +11,7 @@
 
 
 class Bibliotecari{
+  private $user;
   private $nomcomplet;
   private $Adreça;
   private $correu;
@@ -24,19 +25,26 @@ class Bibliotecari{
 
 
 
-  public function __construct($nomcomplet,$Adreça,$correu,$tlf,$dni,$pass,$nsocial,$datainici,$salari,$bibliocap){        
+  public function __construct($user,$nomcomplet,$Adreça,$correu,$tlf,$dni,$pass,$nsocial,$datainici,$salari,$bibliocap){  
+          $this->user=$user; 
+          $this->pass=$pass;     
           $this->nomcomplet=$nomcomplet;
           $this->Adreça=$Adreça;
           $this->correu=$correu;
           $this->tlf=$tlf;
           $this->dni=$dni;
-          $this->pass=$pass;
           $this->nsocial=$nsocial;
           $this->datainici=$datainici;
           $this->salari=$salari;
           $this->bibliocap=$bibliocap;
       }
 
+      public function getNom(){
+        return $this->user;
+      }
+      public function getPass(){
+        return $this->pass;
+      }
       public function getNomC(){
         return $this->nomcomplet;
       }
@@ -51,9 +59,6 @@ class Bibliotecari{
       }
       public function getDNI(){
         return $this->dni;
-      }
-      public function getPass(){
-        return $this->pass;
       }
       public function getNSocial(){
         return $this->nsocial;
@@ -71,7 +76,10 @@ class Bibliotecari{
 
  // recupera los datos del envío POST
  
- 
+ $user = $_POST["user"];
+
+ $pass = $_POST["pass"];
+
  $nomcomplet = $_POST["nomcomplet"];
 
  $Adreça = $_POST["Adreça"];
@@ -82,8 +90,6 @@ class Bibliotecari{
 
  $dni = $_POST["dni"];
 
- $pass = $_POST["pass"];
-
  $nsocial = $_POST["nsocial"];
 
  $datainici = $_POST["datainici"];
@@ -93,61 +99,64 @@ class Bibliotecari{
  $bibliocap = $_POST["bibliocap"];
 
    
- $Bibliotecari = new Bibliotecari($nomcomplet,$Adreça,$correu,$tlf,$dni,$pass,$nsocial,$datainici,$salari,$bibliocap);
+ $Bibliotecari = new Bibliotecari($user,$nomcomplet,$Adreça,$correu,$tlf,$dni,$pass,$nsocial,$datainici,$salari,$bibliocap);
  // valida los datos enviados
 
  // verificamos datos
   
-  if(empty ($Bibliotecari->getNomC())){
+ if(empty ($Bibliotecari->getNom())){
   die ('ERROR: Si us plau proporcioni el seu user.');
-}
-    if(empty ($Bibliotecari->getNomC())){
-        die ('ERROR: Si us plau proporcioni el seu nom complet.');
-        }
-
-        if(empty ($Bibliotecari->getAdreça())){
-            die ('ERROR: Si us plau proporcioni la seva Adreça.');
+} 
+  if(empty ($Bibliotecari->getPass())){
+    die ('ERROR: Si us plau proporcioni la seva password.');
+    }
+      if(empty ($Bibliotecari->getNomC())){
+      die ('ERROR: Si us plau proporcioni el seu user.');
+    }
+        if(empty ($Bibliotecari->getNomC())){
+            die ('ERROR: Si us plau proporcioni el seu nom complet.');
             }
 
-            if(empty ($Bibliotecari->getCorreu())){
-                die ('ERROR: Si us plau proporcioni el seu correu.');
+            if(empty ($Bibliotecari->getAdreça())){
+                die ('ERROR: Si us plau proporcioni la seva Adreça.');
                 }
 
-                if(empty ($Bibliotecari->getTlf())){
-                    die ('ERROR: Si us plau proporcioni el seu telefon.');
+                if(empty ($Bibliotecari->getCorreu())){
+                    die ('ERROR: Si us plau proporcioni el seu correu.');
                     }
 
-                    if(empty ($Bibliotecari->getDNI())){
-                        die ('ERROR: Si us plau proporcioni el seu DNI.');
+                    if(empty ($Bibliotecari->getTlf())){
+                        die ('ERROR: Si us plau proporcioni el seu telefon.');
                         }
 
-                        if(empty ($Bibliotecari->getPass())){
-                            die ('ERROR: Si us plau proporcioni la seva password.');
+                        if(empty ($Bibliotecari->getDNI())){
+                            die ('ERROR: Si us plau proporcioni el seu DNI.');
                             }
-
-                            if(empty ($Bibliotecari->getNSocial())){
-                                die ('ERROR: Si us plau proporcioni el seu número de la seguretat social.');
-                                }
-
-                                if(empty ($Bibliotecari->getdataInici())){
-                                    die ('ERROR: Si us plau proporcioni la seva data inici de contracte.');
+                                if(empty ($Bibliotecari->getNSocial())){
+                                    die ('ERROR: Si us plau proporcioni el seu número de la seguretat social.');
                                     }
 
-                                    if(empty ($Bibliotecari->getSalari())){
-                                        die ('ERROR: Si us plau proporcioni el seu salari.');
+                                    if(empty ($Bibliotecari->getdataInici())){
+                                        die ('ERROR: Si us plau proporcioni la seva data inici de contracte.');
                                         }
 
-                                        if(empty ($Bibliotecari->getBibliocap())){
-                                            die ('ERROR: Si us plau proporcioni si es cap o no.');
+                                        if(empty ($Bibliotecari->getSalari())){
+                                            die ('ERROR: Si us plau proporcioni el seu salari.');
                                             }
 
-	
-                    
+                                            if(empty ($Bibliotecari->getBibliocap())){
+                                                die ('ERROR: Si us plau proporcioni si es cap o no.');
+                                                }
+             
 
 
 extract($_REQUEST);
 $file=fopen("bibliotecarios.txt","a");
 fwrite($file, "\n");  
+
+fwrite($file, $Bibliotecari->getNom(). "|");
+
+fwrite($file, $Bibliotecari->getPass(). "|");
 
 fwrite($file, $Bibliotecari->getNomC(). "|");
 
@@ -158,8 +167,6 @@ fwrite($file, $Bibliotecari->getCorreu(). "|");
 fwrite($file, $Bibliotecari->getTlf(). "|");
 
 fwrite($file, $Bibliotecari->getDNI(). "|");
-
-fwrite($file, $Bibliotecari->getPass(). "|");
 
 fwrite($file, $Bibliotecari->getNSocial(). "|");
 
