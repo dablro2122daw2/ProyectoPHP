@@ -1,39 +1,20 @@
 <?php
 
   session_start();  
+  echo "usuari:  ".$_SESSION['user']."<br>";
+  echo "Sessió: ".session_id()."</br>";
+ 
+ 
+  if($_SESSION['user']!="admin"){
+ 
+     echo "Apartat User";
+    // $comandes.getAll();
+ 
+    
+ }
 
 ?>
 <h1>  Usuari </h1>
-
-<?php
-
-
-
-
-
-
- echo "usuari:  ".$_SESSION['user']."<br>";
-
-
-
-
-if($_SESSION['user']!="admin"){
-
-    echo "Apartat User";
-   // $comandes.getAll();
-
-   
-}
-/*
-while($i in $comandes.getAll()){
-	if($i == $user.getId()){
-	echo $i;
-}
-}*/
-
-
-?>
-
 
  <!--Part de codi que permet accedir a les dades del usuari de sessió i a traves d´un botó imprimir les dades -->
 

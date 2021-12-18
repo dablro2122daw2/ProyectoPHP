@@ -22,7 +22,7 @@
 
 
 
- $_SESSION['user']= $tipus;
+ $_SESSION['user']= $user;
  $_SESSION['tipus']= $tipus;
 
 

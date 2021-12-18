@@ -1,31 +1,21 @@
 <?php
 
   session_start();  
-  
+  echo "usuari:  ".$_SESSION['user']."<br>";
+  echo "Sessió: ".session_id()."</br>";
+ 
+ 
+  if($_SESSION['user']=="admin"){
+ 
+	 echo "Apartat User";
+	// $comandes.getAll();
+ 
+	
+ }
+
 ?>
 <h1>  Administrador </h1>
-<?php
 
- // recupera los datos del envío POST
-
-
-
- echo "usuari:  ".$_SESSION['user']."<br>";
-
-
-
-
-if($_SESSION['user']=="admin"){
-
-    echo "Apartat Administrador";
-   // $comandes.getAll();
-
-
-}
-
-
-
-?>
 
 <form action="espaiadmin.php" method="GET">
   
@@ -116,7 +106,7 @@ if($_SESSION['user']=="admin"){
    
  </form>
  <!--<input type="button" value="Afegir producte" onclick="location.href='Compra.php'">-->
- <input type="button" value="Crear comandes" onclick="location.href='Compra.php'">
+ <input type="button" value="Nou llibre" onclick="location.href='formcrearlibro.php'">
 <input type="button" value="Esborrar comanda" onclick="location.href='esbCom.php'">
 <input type="button" value=" Gestió comandes" onclick="location.href='LecturaCom.php'">
  <a href="logout.php">Tancar Sessió</a>
