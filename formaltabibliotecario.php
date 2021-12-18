@@ -16,23 +16,18 @@
 <body>
 
 	<h2>Registre de Membres</h2>
-	<form method="POST" action="altausuario.php">
-		
-		Nom d'Usuari:<br/>
+	
+	<form method="POST" action="altabibliotecarios.php">
+		Nom d'usuari:<br/>
 		<input type="text" name="user" size="50" /></p>
-   
-		Contrasenya:<br/>
-		<input type="password" name="pass" size="50" /></p>
-   
-   
-		Nom Complet:<br/>
+		
+		Nom complet:<br/>
 		<input type="text" name="nomcomplet" size="50" /></p>
-   
+		
 		Adreça Postal Completa:<br/>
-		<input type="text" name="Adreça" size="50" /></p>
+   		<input type="text" name="Adreça" size="50" /></p>
    
-   
-		Correu Electrònic:<br/>		   
+		Correu Electrònic:<br/>
 		<input type="text" name="correu" size="50" /></p>
 
 		Telèfon de Contacte:<br/>
@@ -40,22 +35,27 @@
 
 		DNI:<br/>
 		<input type="text" name="dni" maxlength="9" size="50" /></p>
+				
+		Contrasenya:<br/>
+		<input type="password" name="pass" size="50" /></p>
    
-		Prestec:<br/>
-		<select name="prestec">
+		Número de la Seguretat Social:<br/>
+		<input type="text" name="nsocial" maxlength="12" size="50" /></p>
+   
+		Inici de Contracte:<br />
+		<input type="date" name="datainici"></p>
+
+		Salari:<br/>
+		<input type="text" name="salari"  size="50" /></p>
+   
+		Cap Bibliotecari:<br/>
+		<select name="bibliocap">
 			<option value="Si">Si</option>
 			<option value="No">No</option>
 		</select></p>
-   
-		Data del Prestec:<br/>
-   		<input type="date" name="dataPrestec"></p>
-   
-		ISBN del Llibre:<br/>
-		<input type="text" name="ISBN" size="50" />	
 
-
-		<input type="submit" name="submit" value="registrar-me" />
-		<input type="button" value="tornar" onclick="location.href='registroulogin.php'">				
+		<input type="submit" name="submit" value="Registrar-me" />
+		<input type="button" value="Tornar" onclick="location.href='registroulogin.php'">				
 	</form>
 </body>
 </html>
