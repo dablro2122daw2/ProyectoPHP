@@ -1,12 +1,12 @@
 <?php
   session_start();  
-  echo "<p style='text-align:right'>"."usuari:  ".$_SESSION['user']."</p>";
-	echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
+  echo "<p style='text-align:right'>"."Nom Usuari:  ".$_SESSION['user']."</p>";
+  echo "<p style='text-align:right'>"."Tipus Usuari:  ".$_SESSION['tipus']."</p>";
+  echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
 
-  if($_SESSION['user']!="admin"){
-    echo "Apartat User";
-    // $comandes.getAll();
-  }
+  echo "<form style='text-align:right' action='retrocedirpagina.php' method='GET'>";
+  echo "<input type='submit' name='RetrocedirPagina' value='Tornar a la Página Anterior'>";
+  echo "</form>";
 
   echo "<form style='text-align:right' action='logout.php' method='GET'>";
   echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
@@ -16,7 +16,7 @@
 
 <h1>Usuari</h1>
 <form method="POST">
-  <input type="submit" name="submit" value="visualitzar dades personals"><br>
+  <input type="submit" name="submit" value="Visualitzar Dades Personals"><br>
 
   <?php
     if(isset($_POST['submit'])){
@@ -40,7 +40,7 @@
 
 
 <form method="post">
-  <input type="submit" name="submitmodificacio" value="modificar dades personals"><br>
+  <input type="submit" name="submitmodificacio" value="Modificar Dades Personals"><br>
   
   <?php
     if(isset($_POST['submitmodificacio'])){

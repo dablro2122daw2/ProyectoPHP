@@ -14,31 +14,12 @@
 
 ?>
 
-<h1>Administrador</h1>
+<h1>Bibliotecari</h1>
 <form action="espaiadmin.php" method="GET">
-  <input type="submit" name="consultarusuaris" value="Visualització de totes les dades de l'usuari">
   <input type="submit" name="consultarbibliotecaris" value="Visualització de totes les dades dels bibliotecaris"><br>
 
   
   <?php
-    if(isset($_GET['consultarusuaris'])){
-      $archivo = fopen("usuarios.txt", "r") or die("Error - No fue poible abrir el archivo");
-      $encontrado=false;
-      
-      while ($linea = fgets($archivo)){
-        $partes = explode('|', trim($linea));
-        
-        //no mostramos los datos del admin 
-        if ($partes[0] =="admin" ){
-          echo "";
-        }
-        else{
-          echo "<br>".$linea."<br>";
-        }
-      }
-    
-      fclose($archivo);
-    }
     if(isset($_GET['consultarbibliotecaris'])){
       $archivo = fopen("bibliotecarios.txt", "r") or die("Error - No fue poible abrir el archivo");
       $encontrado=false;
@@ -64,6 +45,6 @@
 <input type="button" value="Esborrar llibre" onclick="location.href='formeliminarlibro.php'">
 <input type="button" value=" Modificar llibre" onclick="location.href='LecturaCom.php'"><br>
 <br>
-<input type="button" value="Nou usuari/bibliotecari" onclick="location.href='formcrearusuario.php'">
-<input type="button" value="Esborrar usuari/bibliotecari" onclick="location.href='eliminartipusUsuario.php'">
-<input type="button" value=" Modificar usuari/bibliotecari" onclick="location.href='modificartipusUsuario.php'">
+<input type="button" value="Nou Usuari" onclick="location.href='formaltausuario.php'">
+<input type="button" value="Esborrar Usuari" onclick="location.href='formeliminarusuario.php'">
+<input type="button" value=" Modificar Usuari" onclick="location.href='formModificarUsuario.php'">

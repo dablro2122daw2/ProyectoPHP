@@ -17,11 +17,11 @@
 		<select name="tipus">
 			<option value="Bibliotecari">Bibliotecari</option>
 			<option value="Usuari">Usuari</option>
+			<option value="Admin">Admin</option>
+
 	 	</select></p>
         <input type="submit" name="submit" value="Login" onclick="location.href='login.php'" />
 
-        <h4>Encara no estàs registrat?</h4>
-        <input type="button" value="Registrar-me" onclick="location.href='tipousuario.html'">
 	</form>   
 </body>
 </html>

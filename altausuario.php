@@ -1,10 +1,22 @@
 <?php
   session_start();  
+  echo "<p style='text-align:right'>"."Nom Usuari:  ".$_SESSION['user']."</p>";
+  echo "<p style='text-align:right'>"."Tipus Usuari:  ".$_SESSION['tipus']."</p>";
+  echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
 
+  echo "<form style='text-align:right' action='retrocedirpagina.php' method='GET'>";
+  echo "<input type='submit' name='RetrocedirPagina' value='Tornar a la Página Anterior'>";
+  echo "</form>";
+
+  echo "<form style='text-align:right' action='logout.php' method='GET'>";
+  echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
+  echo "</form>";
+  header( "refresh:10;url=./retrocedirpagina.php" );
 ?>
 
 
  <h1>El nou usuari ha enregistrat correctament al sistema </h1>
+ <p>Esperi uns segons a que sigui retornat al menú principal</p>
 
 
 <?php
@@ -65,6 +77,13 @@ class Usuari{
       public function getISBN(){
         return $this->ISBN;
       }
+      public function setdataPrestec(){
+        return $this->dataPrestec=0;
+      }
+      
+      public function setISBN(){
+        return $this->ISBN=0;
+      }
 }
 
  // recupera los datos del envío POST
@@ -124,17 +143,13 @@ class Usuari{
                         if(empty ($usuaris->getDNI())){
                             die ('ERROR: Si us plau proporcioni el seu DNI.');
                             }
-                                if(empty ($usuaris->getprestec())){
-                                    die ('ERROR: Si us plau proporcioni si té prestec o no.');
-                                    }
-
-                                    if(empty ($usuaris->getdataPrestec())){
-                                        die ('ERROR: Si us plau proporcioni la data del prestec.');
-                                        }
-
-                                        if(empty ($usuaris->getISBN())){
-                                            die ('ERROR: Si us plau proporcioni el ISBN del llibre.');
-                                            }
+                            if($prestec=="Si"){
+                              $usuaris->getdataPrestec();
+                              $usuaris->getISBN(); }
+                            else{
+                              $usuaris->setdataPrestec();
+                              $usuaris->setISBN();
+                            }
 	
                     
 

@@ -1,5 +1,17 @@
 <?php
   session_start();  
+  echo "<p style='text-align:right'>"."Nom Usuari:  ".$_SESSION['user']."</p>";
+  echo "<p style='text-align:right'>"."Tipus Usuari:  ".$_SESSION['tipus']."</p>";
+  echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
+
+  echo "<form style='text-align:right' action='retrocedirpagina.php' method='GET'>";
+  echo "<input type='submit' name='RetrocedirPagina' value='Tornar a la Página Anterior'>";
+  echo "</form>";
+
+  echo "<form style='text-align:right' action='logout.php' method='GET'>";
+  echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
+  echo "</form>";
+
 ?>
 
 <h1>Accés usuari </h1>
@@ -24,7 +36,8 @@
   // Mostramos contenido del archivo
   $archivo = fopen("usuarios.txt", "r") or die("Error - No fue poible abrir el archivo");
   $archivo2 = fopen("bibliotecarios.txt", "r") or die("Error - No fue poible abrir el archivo");
-       
+  $archivo3 = fopen("admin.txt", "r") or die("Error - No fue poible abrir el archivo");
+     
   $encontrado=false;
 
   while($linea = fgets($archivo)){
@@ -44,18 +57,29 @@
       break;
     }
   }
- 
+  while($linea = fgets($archivo3)){
+    $partes = explode('|', trim($linea));
+    
+    if (($user == $partes[0]) && ($pass == $partes[1])){
+      $encontrado=true;
+      break;
+    }
+  }
   if($encontrado==true && $_SESSION['tipus']=="Bibliotecari"){
-    echo "Apartat Administrador";
-    header('Location: '."espaiadmin.php");
+    echo "Apartat bibliotecari";
+    header('Location: '."espaibibliotecari.php");
   }
 
-  else if($encontrado==true && $_SESSION['tipus']!="Bibliotecari"){
-    echo '  Has sigut validat correctament amb l´usuari i contrasenya indicats.'."<br>";
+  else if($encontrado==true && $_SESSION['tipus']=="Usuari"){
+    echo ' Apartat usuari.'."<br>";
     header('Location: '."espaiuser.php");
     echo "Les teves dades personales son: ".$linea;
   }
-
+  else if($encontrado==true && $_SESSION['tipus']=="Admin"){
+    echo ' Apartat administrador.'."<br>";
+    header('Location: '."espaiadmin.php");
+    echo "Les teves dades personales son: ".$linea;
+  }
   else{
     echo "   l´usuari o el password introduït son incorrectes ";
     echo "   Retornant a la página de registre, un moment si us plau ";

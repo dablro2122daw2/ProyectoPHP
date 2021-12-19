@@ -1,8 +1,21 @@
 <?php
   session_start();  
+  echo "<p style='text-align:right'>"."Nom Usuari:  ".$_SESSION['user']."</p>";
+  echo "<p style='text-align:right'>"."Tipus Usuari:  ".$_SESSION['tipus']."</p>";
+  echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
+
+  echo "<form style='text-align:right' action='retrocedirpagina.php' method='GET'>";
+  echo "<input type='submit' name='RetrocedirPagina' value='Tornar a la Página Anterior'>";
+  echo "</form>";
+
+  echo "<form style='text-align:right' action='logout.php' method='GET'>";
+  echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
+  echo "</form>";
+  header( "refresh:10;url=./retrocedirpagina.php" );
 ?>
 
 <h1>El nou llibre ha enregistrat correctament al sistema </h1>
+<p>Esperi uns segons a que sigui retornat al menú principal</p>
 
 <?php
 class Llibre{
@@ -77,7 +90,7 @@ if(empty ($llibre->gettitolLlibre())){
   }
   if($prestec=="Si"){
     $llibre->getdataPrestec();
-    $llibre->getdataPrestec(); }
+    $llibre->getUser(); }
   else{
     $llibre->setdataPrestec();
     $llibre->setuser();

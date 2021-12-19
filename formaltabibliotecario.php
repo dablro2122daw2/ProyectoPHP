@@ -1,12 +1,17 @@
 <?php
 	session_start();
-	echo "<p style='text-align:right'>"."usuari:  ".$_SESSION['user']."</p>";
+	echo "<p style='text-align:right'>"."Nom Usuari:  ".$_SESSION['user']."</p>";
+	echo "<p style='text-align:right'>"."Tipus Usuari:  ".$_SESSION['tipus']."</p>";
 	echo "<p style='text-align:right'>"."Sessió: ".session_id()."</p>";
+
+	echo "<form style='text-align:right' action='retrocedirpagina.php' method='GET'>";
+	echo "<input type='submit' name='RetrocedirPagina' value='Tornar a la Página Anterior'>";
+	echo "</form>";
+
+	echo "<form style='text-align:right' action='logout.php' method='GET'>";
+	echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
+	echo "</form>";
  
-	if($_SESSION['user']!="admin"){
-		echo "Apartat User";
-		// $comandes.getAll();
-	}
 ?>
 
 <html> 
@@ -37,7 +42,7 @@
 		<input type="text" name="dni" maxlength="9" size="50" /></p>
 				
 		Contrasenya:<br/>
-		<input type="password" name="pass" size="50" /></p>
+		<input type="password" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-?]).{8,}$" size="50" /></p>
    
 		Número de la Seguretat Social:<br/>
 		<input type="text" name="nsocial" maxlength="12" size="50" /></p>
