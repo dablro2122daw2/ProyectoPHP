@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<h2>Registre de Membres</h2>
+	<h2>Eliminar llibre</h2>
 	<form method="POST" action="eliminarlibro.php">
 		
 		Títol del llibre:<br/>

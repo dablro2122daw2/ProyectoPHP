@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<h2>Registre de Membres</h2>
+	<h2>Eliminar bibliotecari</h2>
 	<form method="POST" action="eliminarbibliotecario.php">
 		
 		Nom d'Usuari:<br/>

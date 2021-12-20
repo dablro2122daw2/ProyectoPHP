@@ -16,10 +16,12 @@
 
 <h1>Usuari</h1>
 <form method="POST">
-  <input type="submit" name="submit" value="Visualitzar Dades Personals"><br>
+  <input type="submit" name="dades" value="Visualitzar Dades Personals">
+  <input type="submit" name="consultarllibres" value="Visualització del cataleg de llibres">
+
 
   <?php
-    if(isset($_POST['submit'])){
+    if(isset($_POST['dades'])){
       $archivo = fopen("usuarios.txt", "r") or die("Error - No fue poible abrir el archivo");
       $encontrado=false;
    
@@ -35,21 +37,25 @@
       echo "Les teves dades personales son: ".$linea;
       fclose($archivo);
     }
-  ?>
-</form>
+    if(isset($_POST['consultarllibres'])){
+      $archivo = fopen("libros.txt", "r") or die("Error - No fue poible abrir el archivo");
+      $encontrado=false;
+      
+      while ($linea = fgets($archivo)){
+        $partes = explode('|', trim($linea));
+        
+        //no mostramos los datos del admin 
+        if ($partes[0] =="user" ){
+          echo "";
+        }
+        else{
+          echo "<br>".$linea."<br>";
+        }
+      }
 
-
-<form method="post">
-  <input type="submit" name="submitmodificacio" value="Modificar Dades Personals"><br>
-  
-  <?php
-    if(isset($_POST['submitmodificacio'])){
-      echo "Modificacio de dades";
-      header('Location: '."formularioModificarUsuario.php");
+      fclose($archivo);
     }
-  ?>  
-</form>
+  ?>
 
-<input type="button" value="Crear comandes" onclick="location.href='Compra.php'">
-<input type="button" value="Esborrar comanda" onclick="location.href='esbCom.php'">
-<input type="button" value=" Gestió comandes" onclick="location.href='LecturaCom.php'">
+
+</form>

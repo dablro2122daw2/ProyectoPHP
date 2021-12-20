@@ -15,7 +15,7 @@
 ?>
 
 <h1>Bibliotecari</h1>
-<form action="espaiadmin.php" method="GET">
+<form action="espaibibliotecari.php" method="GET">
   <input type="submit" name="consultarbibliotecaris" value="Visualització de totes les dades dels bibliotecaris"><br>
 
   
@@ -43,7 +43,7 @@
 
 <input type="button" value="Nou llibre" onclick="location.href='formcrearlibro.php'">
 <input type="button" value="Esborrar llibre" onclick="location.href='formeliminarlibro.php'">
-<input type="button" value=" Modificar llibre" onclick="location.href='LecturaCom.php'"><br>
+<input type="button" value=" Modificar llibre" onclick="location.href='formmodificarlibro.php'"><br>
 <br>
 <input type="button" value="Nou Usuari" onclick="location.href='formaltausuario.php'">
 <input type="button" value="Esborrar Usuari" onclick="location.href='formeliminarusuario.php'">

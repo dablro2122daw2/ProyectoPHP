@@ -11,7 +11,7 @@
   echo "<form style='text-align:right' action='logout.php' method='GET'>";
   echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
   echo "</form>";
-  header( "refresh:10;url=./registroulogin.php" );
+  header( "refresh:10;url=./retrocedirpagina.php" );
 ?>
 
 

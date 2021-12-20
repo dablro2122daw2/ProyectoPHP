@@ -18,7 +18,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 </head>
 <body>
-    <h2>Seleccioneu el Tipus d'Usuari<br>que voleu crear:</h2>
+    <h2>Seleccioneu el Tipus d'Usuari<br>que voleu eliminar:</h2>
     <input type="button" value="Usuari Client" onclick="location.href='formeliminarusuario.php'">
     <input type="button" value="Bibliotecari" onclick="location.href='formeliminarbibliotecario.php'">
     

@@ -11,7 +11,6 @@
 	echo "<form style='text-align:right' action='logout.php' method='GET'>";
 	echo "<input type='submit' name='TancarSessio' value='Tancar Sessió'>";
 	echo "</form>";
- 
 ?>
 
 <html> 
@@ -20,19 +19,24 @@
 </head>
 <body>
 
-	<h2>Registre de bibliotecaris</h2>
-	
-	<form method="POST" action="altabibliotecarios.php">
-		Nom d'usuari:<br/>
+	<h2>Modificació de dades d'usuari</h2>
+	<form method="POST" action="modificarusuario.php">
+		
+		Nom d'Usuari:<br/>
 		<input type="text" name="user" size="50" /></p>
-		
-		Nom complet:<br/>
-		<input type="text" name="nomcomplet" size="50" /></p>
-		
-		Adreça Postal Completa:<br/>
-   		<input type="text" name="Adreça" size="50" /></p>
    
-		Correu Electrònic:<br/>
+		Contrasenya:<br/>
+		<input type="password" name="pass" size="50" /></p>
+   
+   
+		Nom Complet:<br/>
+		<input type="text" name="nomcomplet" size="50" /></p>
+   
+		Adreça Postal Completa:<br/>
+		<input type="text" name="Adreça" size="50" /></p>
+   
+   
+		Correu Electrònic:<br/>		   
 		<input type="text" name="correu" size="50" /></p>
 
 		Telèfon de Contacte:<br/>
@@ -40,27 +44,22 @@
 
 		DNI:<br/>
 		<input type="text" name="dni" maxlength="9" size="50" /></p>
-				
-		Contrasenya:<br/>
-		<input type="password" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-?]).{8,}$" size="50" /></p>
    
-		Número de la Seguretat Social:<br/>
-		<input type="text" name="nsocial" maxlength="12" size="50" /></p>
-   
-		Inici de Contracte:<br />
-		<input type="date" name="datainici"></p>
-
-		Salari:<br/>
-		<input type="text" name="salari"  size="50" /></p>
-   
-		Cap Bibliotecari:<br/>
-		<select name="bibliocap">
+		Prestec:<br/>
+		<select name="prestec">
 			<option value="Si">Si</option>
 			<option value="No">No</option>
 		</select></p>
+   
+		Data del Prestec:<br/>
+   		<input type="date" name="dataPrestec"></p>
+   
+		ISBN del Llibre:<br/>
+		<input type="text" name="ISBN" size="50" />	
 
-		<input type="submit" name="submit" value="Registrar-me" />
-		<input type="button" value="Tornar" onclick="location.href='retrocedirpagina.php'">				
+
+		<input type="submit" name="submit" value="Modificar" />
+		<input type="button" value="tornar" onclick="location.href='retocederpagina.php'">				
 	</form>
 </body>
 </html>

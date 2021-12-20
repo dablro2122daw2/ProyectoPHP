@@ -20,13 +20,16 @@
 </head>
 <body>
 
-	<h2>Registre de bibliotecaris</h2>
+	<h2>Modificar dades de bibliotecari</h2>
 	
-	<form method="POST" action="altabibliotecarios.php">
+	<form method="POST" action="modificarbibliotecario.php">
 		Nom d'usuari:<br/>
 		<input type="text" name="user" size="50" /></p>
+
+		Contrasenya:<br/>
+		<input type="password" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-?]).{8,}$" size="50" /></p>
 		
-		Nom complet:<br/>
+        Nom complet:<br/>
 		<input type="text" name="nomcomplet" size="50" /></p>
 		
 		Adreça Postal Completa:<br/>
@@ -41,9 +44,6 @@
 		DNI:<br/>
 		<input type="text" name="dni" maxlength="9" size="50" /></p>
 				
-		Contrasenya:<br/>
-		<input type="password" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-?]).{8,}$" size="50" /></p>
-   
 		Número de la Seguretat Social:<br/>
 		<input type="text" name="nsocial" maxlength="12" size="50" /></p>
    
@@ -59,8 +59,8 @@
 			<option value="No">No</option>
 		</select></p>
 
-		<input type="submit" name="submit" value="Registrar-me" />
-		<input type="button" value="Tornar" onclick="location.href='retrocedirpagina.php'">				
+		<input type="submit" name="submit" value="Modificar" />
+		<input type="button" value="Tornar" onclick="location.href='registroulogin.php'">				
 	</form>
 </body>
 </html>

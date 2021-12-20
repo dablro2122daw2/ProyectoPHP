@@ -18,9 +18,9 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 </head>
 <body>
-    <h2>Seleccioneu el Tipus d'Usuari<br>que voleu crear:</h2>
-    <input type="button" value="Usuari Client" onclick="location.href='modificarusuario.php'">
-    <input type="button" value="Bibliotecari" onclick="location.href='modificarbibliotecario.php'">
+    <h2>Seleccioneu el Tipus d'Usuari<br>que voleu modificar:</h2>
+    <input type="button" value="Usuari Client" onclick="location.href='formmodificarusuario.php'">
+    <input type="button" value="Bibliotecari" onclick="location.href='formmodificarbibliotecario.php'">
     
 </body>
 </html>
